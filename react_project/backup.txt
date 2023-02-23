@@ -1,0 +1,87 @@
+// import { useEffect, useState } from 'react'
+// const axios = require('axios').default
+import MoviesList from "./MoviesList"
+import AddMovie from "./AddMovie"
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
+function App() {
+// const [movies, setMovies] = useState([])
+// const [variable, changeVariable] = useState(0)
+
+// const postMovie = () => {
+//   axios.post("http://localhost:5000/movie",         
+//   {
+//     "title": "lets see how it works",
+//     "director": "cnie?",
+//     "genre": "Dramat",
+//     "year": 2017, // wartość między 1000 a rokiem aktualnym
+//     "description": "Testing it out",
+//     "image_url": "none found"
+//     })
+//     .then(() => console.log("Udało się!"))
+//     .then(() => axios.get("http://localhost:5000/movies").then(res => setMovies(res.data)))
+// useEffect(() => {
+//   axios.post("http://localhost:5000/movie",         
+//   {
+//     "title": "XD",
+//     "director": "its a me mario",
+//     "genre": "Dramat",
+//     "year": 2017, // wartość między 1000 a rokiem aktualnym
+//     "description": "Testing it out",
+//     "image_url": "none found"
+//     })
+//     .then(() => console.log("Udało się!"))
+// }, [variable])
+
+// {
+//   "title": "Ale maniana",
+//   "director": "Patryk Vega",
+//   "genre": "Dramat",
+//   "year": 2017, // wartość między 1000 a rokiem aktualnym
+//   "description": "Testing it out",
+//   "image_url": "none found"
+//   }
+
+// useEffect(() => {
+// //   axios.post("http://localhost:5000/movie", {
+// //     "title": "Mamma mia",
+// //     "director": "Frank Darabont",
+// //     "genre": "Dramat",
+// //     "year": 1999, // wartość między 1000 a rokiem aktualnym
+// //     "description": "Emerytowany strażnik więzienny...",
+// //     "image_url": null
+// // })
+// //     .then(response => console.log(response), error => console.log(error))
+
+//   axios.get("http://localhost:5000/movies")
+//   .then(res => setMovies(res.data))
+// }, [])
+
+
+  return (
+    <BrowserRouter >
+      <div className="container">
+        <div className="row">
+        <label htmlFor="drawer-control" className="drawer-toggle"></label>
+          <input type="checkbox" id="drawer-control" className="drawer" />
+          <nav className="col-md-3">
+            <label htmlFor="drawer-control" className="drawer-close"></label>
+              <span>Movies</span>
+                <Link to="/" className="sublink-1">All movies</Link>
+                <Link to="/addmovie" className="sublink-1">Add new movie</Link>
+              <span className="sublink-1">Category 2.2</span>
+              <a href="google.com" className="sublink-2">Item 2.2.1</a>
+          </nav>
+        <div className="col-sm-12 col-md-9">
+            <Switch>
+              <Route path="/" component={MoviesList} exact />
+              <Route path="addmovie" component={AddMovie} />
+              {/* <Route path="/" component={} /> */}
+            </Switch> 
+        </div>
+      </div>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
